@@ -1,0 +1,30 @@
+.footer{
+    width: 100%;
+    position: relative;
+    background-color: #2a2d2f;
+    height: 60px;
+    color: #ce0000;
+    margin-top: 5px;
+}
+.footer_title{
+    font-size: 30px;
+    font-family: "Museo Sans Cyrl 700", sans-serif;
+}
+.footer_authors{
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+}
+.footer_author{
+display: flex;
+}
+.footer_Img img{
+    height: 60px;
+    width: 60px;
+}
+.footer_Name{
+    text-align: center;
+    line-height: 60px;
+    font-size: 25px;
+    margin-left: 10px;
+}

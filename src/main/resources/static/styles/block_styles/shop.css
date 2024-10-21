@@ -1,0 +1,256 @@
+
+
+.container_b{
+    max-width: 980px;
+    margin: 0 auto;
+}
+.tabs{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.tab{
+    position: relative;
+    border-radius: 10px;
+    margin: 5px;
+    display: block;
+    height: 380px;
+    width: 180px;
+    box-shadow: 0px 6px 15px rgba(70, 84, 91, 0.2);
+    background-color: #ffffff;
+    transition: all linear .5s;
+    -webkit-transition: all linear .5s;
+}
+.tab:hover {
+
+    border-width: 10px;
+    box-shadow: 0px 6px 15px rgb(255 59 0);
+    transition: all 0.6s;
+
+}
+.book_img img{
+    width: 219px;
+    height:250px ;
+}
+.book_img{
+    display: block;
+    margin: -18px -19px;
+
+}
+.book_info{
+    padding-top: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.book_name{
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #000000;
+    margin-bottom: 5px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-clamp: 2;
+    box-orient: vertical;
+}
+.book_author{
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+    color: #00000047;
+    margin-bottom: 32px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-clamp: 2;
+    box-orient: vertical;
+}
+
+.book_prices{
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+    display: flex;
+    justify-content: flex-start;
+    transition: all linear .5s;
+    -webkit-transition: all linear .5s;
+}
+.book_price{
+    margin-right: 5px;
+    webkit-transition: 2s ease;
+
+}
+.book_prices:hover {
+    font-size: 20px;
+    transition: all 0.6s;
+    webkit-transition: 2s ease;
+}
+.book_rates{
+    display: flex;
+
+
+}
+.book_end{
+    display: flex;
+    padding-bottom: 10px;
+    justify-content: space-between;
+}
+.book_rate{
+    width: 10px;
+    height: 10px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: #000000;
+    align-items: center;
+}
+.book_rate img{
+    height: 18px;
+}
+.tab_bottom{
+    position:absolute;
+    bottom: 0;
+    width: 80%;
+}
+.book_basket{
+
+    position: absolute;
+    bottom: 0;
+    transition: 0.5s;
+    padding: 20px;
+    color: #0a58ca;
+    transition: all 0.6s;
+    webkit-transition: 2s ease;
+    right: 30px;
+    top: -45px;
+
+}
+.book_basket img{
+    height: 40px;
+    transition: all 0.6s;
+    webkit-transition: 2s ease;
+}
+
+.tab{
+    position: relative;
+    webkit-transition: all 2s ease;
+
+}
+.tab:hover .book_basket img{
+    height: 50px;
+    margin-right: -10px;
+    transition: all 0.6s;
+}
+.tab:hover .book_price{
+    font-size: 20px;
+    transition: all 0.6s;
+}
+.pagination{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+.pagination .page_prev, .page_next{
+    color: black;
+    padding: 8px 16px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+.pagination .page_now{
+
+    background-color: rgb(211, 82, 32);
+    color: white;
+    border-radius: 5px;
+    width: 40px;
+    height: 40px;
+    margin-right: 15px;
+    margin-left: 15px;
+    display: flex;
+    justify-content: center;
+    padding-top: 7px;
+
+}
+.pagination .page_next, .page_prev{
+
+    background-color: #ddd;
+    border-radius: 5px;
+    width: 40px;
+    height: 40px;
+}
+label{
+    display: flex;
+    justify-content: space-between;
+}
+select {
+    width: 140px;
+    height: 35px;
+    padding: 4px;
+    border-radius: 4px;
+    box-shadow: 2px 2px 8px #999;
+    background: #eee;
+    border: none;
+    outline: none;
+    display: inline-block;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    transition: all linear .5s;
+    -webkit-transition: all linear .5s;
+}
+select:hover{
+    box-shadow: 0px 6px 15px rgb(255 59 0);
+}
+.sort{
+    display: flex;
+    justify-content: space-between;
+}
+.menu_item .menu_item_link :after,
+.menu_item .menu_item_link :before{
+    display: none;
+}
+.table-striped>tbody>tr:nth-of-type(odd)>* {
+    text-align: center;
+    color: var(--bs-table-striped-color);
+}
+
+
+
+#main {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+#okno {
+    width: 300px;
+    height: 50px;
+    text-align: center;
+    padding: 15px;
+    border: 3px solid #0000cc;
+    border-radius: 10px;
+    color: #0000cc;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+#main:target {display: block;}

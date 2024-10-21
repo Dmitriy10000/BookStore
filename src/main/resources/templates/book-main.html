@@ -1,0 +1,183 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="eng">
+<head>
+    <title th:text="${title}"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet"  type="text/css" th:href="@{/styles/slick.css}"/>
+    <link rel="stylesheet"  type="text/css" th:href="@{/styles/slick-theme.css}"/>
+    <link th:href="@{/styles/bootstrap-grid.min.css}" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/styles/reboot.css}"/>
+    <link th:href="@{/styles/fonts/stylesheet.css}" rel="stylesheet">
+    <link th:href="@{/styles/block_styles/shop.css}" rel="stylesheet"/>
+    <link th:href="@{styles/block_styles/header.css}" rel="stylesheet">
+    <link th:href="@{styles/block_styles/footer.css}" rel="stylesheet">
+
+</head>
+<body>
+<div class="header">
+    <div class="container container_frt">
+        <div class="logo">
+            <a href="/">🇧‌🇴‌🇴‌🇰‌🇸‌🇹‌🇴‌🇷‌🇪</a>
+        </div>
+        <ul class="menu">
+            <li class="menu_item"><a class="menu_item_link" href="/">Home</a></li>
+            <li class="menu_item"><a class="menu_item_link black" href="/book">Books</a></li>
+            <li class="menu_item"><a class="menu_item_link" href="/basket">Basket</a></li>
+        </ul>
+    </div>
+</div>
+<div class="container">
+    <div class="section_title">Our BookStore with books</div>
+    <div class="section_descr"></div>
+</div>
+
+<!--Сортировка!-->
+<div class="container_b">
+<form action="/book" method="get">
+    <div class="sort">
+        <div class="first_sort">
+    <b>Sort by:</b>
+    <label>
+        <select name="sortedBy" th:field="${search.sortedBy}" style="margin-left: 5px;">
+            <option value="name">Name</option>
+            <option value="price">Price</option>
+            <option value="rating">Rating</option>
+        </select>
+    </label>
+        </div>
+        <div class="third_sort">
+            <b>Search by name:</b>
+            <input type="submit" value="Search" style="margin-bottom: 5px;">
+            <label>
+                <input type="text" name="contains" placeholder="book title" th:field="${search.contains}">
+            </label>
+
+        </div>
+
+        <div class="second_sort">
+            <b>Sort:</b>
+    <label>
+
+        <select name="order" th:field="${search.order}">
+            <option value="asc">Ascending</option>
+            <option value="desc">Descending</option>
+        </select>
+    </label>
+        </div>
+    </div>
+</form>
+</div>
+
+<!--Ошибка, если книг не найдено-->
+<div th:if="${books.isEmpty()}">
+    <p>Books not found</p>
+</div>
+
+<!--<div class="container">-->
+<!--    <div class="tabs">-->
+<!--        <div th:each="book : ${books}">-->
+<!--        <div class="tab">-->
+<!--            <div class="book_img"><img th:src="${book.imageUrl}" alt=""></div>-->
+<!--            <div class="book_text">-->
+<!--            <div class="book_name" th:text="${book.name}"></div>-->
+<!--                <div class="author">-->
+<!--                     <div class="book_author">by </div>-->
+<!--                    <div class="book_author" th:text="${book.author}"></div>-->
+<!--                </div>-->
+
+<!--            <div class="book_rate" th:text="${book.rating}"></div>-->
+<!--                <div class="tab_end">-->
+<!--                    <div class="price">-->
+<!--                        <div class="book_price">$</div>-->
+<!--                        <div class="book_price" th:text="${book.price}"></div>-->
+<!--                    </div>-->
+<!--                    <form action="/book" method="post" class="basket_icon" th:id="|id${book.id}|">-->
+<!--                        <input type="hidden" name="id" th:value="${book.id}">-->
+<!--                        <img th:src="@{/styles/img/basket.svg}" th:onclick='|document.getElementById("id${book.id}").submit()|'>-->
+<!--                    </form>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+
+
+
+
+
+<!--Табы-->
+    <div class="container_b">
+        <div class="tabs">
+    <!--        <div th:each="book : ${books}">-->
+
+            <div class="tab" th:each="book : ${books}">
+                <div class="book_img"><img th:src="${book.imageUrl}" src="" alt=""></div>
+                <div class="book_info">
+                    <div class="book_name" th:text="${book.name}"></div>
+                    <div class="book_author" th:text="${book.author}"></div>
+                    <div class="tab_bottom">
+                    <div class="book_end">
+                    <div class="book_prices">
+                        <div class="book_price" th:text="${book.price}" ></div>
+                        <div class="book_price">$</div></div>
+
+                    <div class="book_rates" >
+                        <div class="book_rate" th:text="${book.rating}"></div>
+                        <div class="book_rate"><img th:src="@{/styles/img/Vector.svg}" src="" alt=""></div>
+                    </div>
+
+
+                </div>
+                <div class="book_basket">
+                    <form action="/book" method="post" class="basket_icon" th:id="|id${book.id}|">
+                        <input type="hidden" name="id" th:value="${book.id}">
+                        <a href="#" id="#main">
+                            <div id="#okno">
+                                <img th:src="@{/styles/img/basket.png}" th:onclick='|document.getElementById("id${book.id}").submit()|'>
+
+                            </div>
+                        </a>
+                    </form>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="pagination">
+    <div class="page_prev" th:text="${search.page - 1}" ></div>
+    <div th:if="!${books.isEmpty()}">
+        <label>
+
+            <form action="/book" method="get">
+                <input type="hidden" name="sortedBy" th:field="${search.sortedBy}">
+                <input type="hidden" name="order" th:field="${search.order}">
+                <input type="hidden" name="contains" th:field="${search.contains}">
+                <input type="hidden" name="page" th:value="${search.page - 1}">
+                <div class="prev"><input type="submit" value="<"></div>
+
+            </form>
+            <div class="page_now" th:text="${search.page}" ></div>
+            <form action="/book" method="get">
+                <input type="hidden" name="sortedBy" th:field="${search.sortedBy}">
+                <input type="hidden" name="order" th:field="${search.order}">
+                <input type="hidden" name="contains" th:field="${search.contains}">
+                <input type="hidden" name="page" th:value="${search.page + 1}">
+                <div class="next"><input type="submit" value=">"></div>
+            </form>
+
+        </label>
+    </div>
+    <div class="page_next" th:text="${search.page + 1}" ></div>
+</div>
+<div th:insert="blocks/footer.html :: Footer">
+</div>
+
+
+
+<script src="/js/script.js"></script>
+</body>
+</html>

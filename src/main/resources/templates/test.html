@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="eng">
+<head>
+    <title th:text="${title}"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<!--Кнопки для сортировки и поиска-->
+<form action="/test" method="get">
+    <!--Выбор пункта сортировки-->
+    <b>Sort by:</b>
+    <label>
+        <select name="sortedBy" th:field="${search.sortedBy}">
+            <option value="name">Name</option>
+            <option value="price">Price</option>
+            <option value="rating">Rating</option>
+        </select>
+    </label>
+    <!--Сортировка по возрастанию/по убыванию-->
+    <b>Sort:</b>
+    <label>
+        <select name="order" th:field="${search.order}">
+            <option value="asc">Ascending</option>
+            <option value="desc">Descending</option>
+        </select>
+    </label>
+    <!--Поиск по имени -->
+    <b>Search by name:</b>
+    <label>
+        <input type="text" name="contains" placeholder="book title" th:field="${search.contains}">
+    </label>
+    <input type="submit" value="Search">
+</form>
+
+<!--Ошибка, если книг не найдено-->
+<div th:if="${books.isEmpty()}">
+    <p>Books not found</p>
+</div>
+
+<!--Таблица-->
+<div th:if="!${books.isEmpty()}">
+    <table >
+        <tr>
+            <th>Book name</th>
+            <th>Author</th>
+            <th>Price</th>
+            <th>Rating</th>
+            <th>Stars</th>
+        </tr>
+        <!--Цикл по книгам-->
+        <tr th:each="book, iterator : ${books}">
+            <th th:text="${book.name}"></th>
+            <th th:text="${book.author}"></th>
+            <th th:text="${book.price}"></th>
+            <th th:text="${book.rating}"></th>
+            <!--Цикл по звездам-->
+            <th>
+                <b th:each="star : ${stars[iterator.index]}">
+<!--                <b th:text="${star}"></b>-->
+                    <b th:if="${star == 0}">🌑</b>
+                    <b th:if="${star == 1}">🌗</b>
+                    <b th:if="${star == 2}">🌕</b>
+                </b>
+            </th>
+        </tr>
+    </table>
+</div>
+
+<!--Кнопки переключения страниц-->
+<div th:if="!${books.isEmpty()}">
+    <label>
+        <form action="/test" method="get">
+            <input type="hidden" name="sortedBy" th:field="${search.sortedBy}">
+            <input type="hidden" name="order" th:field="${search.order}">
+            <input type="hidden" name="contains" th:field="${search.contains}">
+            <input type="hidden" name="page" th:value="${search.page - 1}">
+            <input type="submit" value="Previous page">
+        </form>
+        <form action="/test" method="get">
+            <input type="hidden" name="sortedBy" th:field="${search.sortedBy}">
+            <input type="hidden" name="order" th:field="${search.order}">
+            <input type="hidden" name="contains" th:field="${search.contains}">
+            <input type="hidden" name="page" th:value="${search.page + 1}">
+            <input type="submit" value="Next page">
+        </form>
+    </label>
+</div>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="eng">
+<head>
+    <title th:text="${title}"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet"  type="text/css" th:href="@{/styles/slick.css}"/>
+    <link rel="stylesheet"  type="text/css" th:href="@{/styles/slick-theme.css}"/>
+    <link th:href="@{/styles/bootstrap-grid.min.css}" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/styles/reboot.css}"/>
+    <link th:href="@{/styles/fonts/stylesheet.css}" rel="stylesheet">
+    <link th:href="@{styles/block_styles/header.css}" rel="stylesheet">
+    <link th:href="@{styles/block_styles/footer.css}" rel="stylesheet">
+    <link th:href="@{styles/block_styles/home_page.css}" rel="stylesheet">
+</head>
+<body>
+<div class="header">
+    <div class="container container_frt">
+        <div class="logo">
+            <a href="/">🇧‌🇴‌🇴‌🇰‌🇸‌🇹‌🇴‌🇷‌🇪</a>
+        </div>
+        <ul class="menu">
+            <li class="menu_item "><a class="menu_item_link black"  href="/">Home</a></li>
+            <li class="menu_item"><a class="menu_item_link" href="/book">Books</a></li>
+            <li class="menu_item"><a class="menu_item_link" href="/basket">Basket</a></li>
+        </ul>
+
+    </div>
+</div>
+<section class="bg_home"></section>
+<div class="container">
+
+    <div class="lineR"></div>
+    <div class="title">BookStore our digital products store </div>
+    <div class="sub_title">You can use this area to describe the products in your digital store.
+    This responsive theme is deal for selling many types of <br> digital products such as books, audio CDs,
+    DVDs, paintings, photographs or any form of digital art or products.</div>
+
+<br>
+</div>
+<section class="carousel">
+    <div class="container">
+        <div class="prev"></div>
+        <div class="carousel__inner">
+            <div><img th:src="@{/styles/img/skazka.jpg}" src="" alt="slide" class="pict" /></div>
+            <div><img th:src="@{/styles/img/Shades_of_Grey.jpg}" src="" alt="slide" class="pict" /></div>
+            <div><img th:src="@{/styles/img/Harry_Potter_and_my_finger.jpg}" src="" alt="slide" class="pict" /></div>
+            <div><img th:src="@{/styles/img/Connections-in-Death-Audiobook.jpg}" src="" alt="slide" class="pict" /></div>
+            <div><img th:src="@{/styles/img/zateryannyi_mir.jpg}" src="" alt="slide" class="pict" /></div>
+        </div>
+        <div class="next"></div>
+    </div>
+</section>
+<a href="/book" class="button">Go to shop</a>
+<div class="container">
+<section class="Rev">
+    <div class="Rev_head">Reviews</div>
+    <div class="Tittles">
+        <div class="Tittle_rev">
+           <div class="Rev_img"><img src="" th:src="@{/styles/img/left_quete.jpg}"class="Rev_img" alt=""></div>
+            <div class="block">
+            <div class="Rev_title">This is one of my five all-time favorite books. It is a patch work <br> story of many characters' lives; by the end of the story, you see<br> how they all intersect. Thanks  for the quick delivery;)</div>
+
+            <div class="Authors">- Mark Flournoy</div>
+        </div>
+        </div>
+
+
+        <div class="Tittle_rev">
+            <div class="Rev_img"><img src="" th:src="@{/styles/img/left_quete.jpg}" class="Rev_img"alt=""></div>
+            <div class="block">
+            <div class="Rev_title">Great book and kept me interested the entire time. I love that the <br> perspective is from the animal's side and what they experience
+                <br> that we can't see. It is about friendship abd being a good family <br>and friend to others. I love that the animals do human things.
+                <br></div>
+
+
+            <div class="Authors">- Marry Ribben</div>
+        </div>
+        </div>
+
+    </div>
+
+
+
+</section>
+
+</div>
+
+
+
+<div class="title title_bl">Our Office</div>
+<div class="map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2997.2271899099746!2d-81.90388168461641!3d41.30392097927192!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x15f24d4720d4408d!2zNDHCsDE4JzE0LjEiTiA4McKwNTQnMDYuMSJX!5e0!3m2!1sru!2skz!4v1668607932474!5m2!1sru!2skz" width="1320" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+
+
+
+
+
+<div class="container">
+    <section class="writer">
+        <div class="writer_title">Featured writer</div>
+        <div class="writer_block">
+        <div class="writer_img"><img src="" th:src="@{/styles/img/Jack.png}" alt=""></div>
+        <div class="writer_letter"> <span>Jessica Doe</span> is the author of several books including many on internet marketing.
+            <br> Offering advice and guidance om Promotion Strategies and Building Your <br> Audience, this book will trully help you achieve your goals.
+            <br> <br>
+        A leading authority on global business trends, Jessica is also a frequent speaker at <br>
+        business events. The books in this series will make you think differently and aim <br>
+        to help you change your approach.</div>
+        </div>
+    </section>
+</div>
+<div th:insert="blocks/footer.html :: Footer">
+
+</div>
+
+<script type="text/javascript" src="" th:src="@{//code.jquery.com/jquery-migrate-1.2.1.min.js}"></script>
+<script type="text/javascript" src="" th:src="@{//code.jquery.com/jquery-1.11.0.min.js}"></script>
+<script src="" th:src="@{/js/script.js}"></script>
+<script src="" th:src="@{/js/slick.min.js}"></script>
+
+</body>
+
+</html>

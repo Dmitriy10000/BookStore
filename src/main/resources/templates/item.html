@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="eng">
+<head>
+    <title th:text="${title}"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<div>
+    <!--Картинка-->
+    <img th:src="${book.imageUrl}" alt="book" width="300" height="300">
+    <!--Название-->
+    <h1 th:text="${book.name}"></h1>
+    <!--Описание-->
+    <p th:text="${book.description}"></p>
+    <!--Автор-->
+    <h2 th:text="${book.author}"></h2>
+    <!--Цена-->
+    <h3 th:text="|$${book.price}|"></h3>
+    <!--Рейтинг-->
+    <h4 th:text="${book.rating}"></h4>
+    <!--Кнопка-->
+    <form action="/item" method="post">
+        <input type="hidden" name="id" th:value="${book.id}">
+        <input type="submit" value="Add to basket">
+    </form>
+</div>
+</body>
+</html>
